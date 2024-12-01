@@ -172,9 +172,16 @@ Now, we have found the second flag.
 
 ### Step 13: Found last flag with alexander's privilege at home directory 
 
+We got the ssh public key and private key from the machine. We can utilize `ssh2john` to prepare for hash cracking.
+
+![wtf1](./static/wtf1.webp)
+
+Next, we can use ssh to connect after successfully cracked the hash and then we md5sum the password.
+
+![wtf2](./static/wtf2.webp)
+
 ![image (1)](./static/image-1.webp)
 
 **3rd Flag:** `MCC24{g00d_j0b_3v3ry0n3}`
 
 
-### Rabbit Hole Faced
