@@ -1,7 +1,7 @@
 ### Step 1: Import the .ova file into vmware 
 After importing into virtualbox or vmware, we can notice it is a Linux Debian machine with the username of **alexander**. The next task is to get the IP address of this machine from a attack machine, for this case our attack machine used is Parrot OS. 
 
-![MCC24-2024-11-29-15-18-03](MCC24-2024-11-29-15-18-03.png)
+![MCC24-2024-11-29-15-18-03](./static/MCC24-2024-11-29-15-18-03.png)
 
 ### Step 2: Ping sweep to get the IP address of the machine
 
@@ -13,7 +13,7 @@ for i in $(seq 254); do ping 172.20.10.$i -c1 -W1 & done | grep from
 
 Make sure the IP address that we going to scan is within the subnet which is **172.20.10** 
 
-![[Other Linux 5.x kernel 64-bit-2024-11-29-15-30-51](Other Linux 5.x kernel 64-bit-2024-11-29-15-30-51.png)
+![Other Linux 5.x kernel 64-bit-2024-11-29-15-30-51](./static/Other Linux 5.x kernel 64-bit-2024-11-29-15-30-51.png)
 
 ### Step 3: Use Nmap to scan open ports of the machine
 
@@ -85,10 +85,12 @@ ftp> quit
 From the ftp server, we can notice a pcap file can be access. We can use `ls` and `get` to download the pcap file to analyze it futher.
 ### Step 5: Analyze PCAP 
 Opening the `net.pcap` file, we can first analyze it from the protocol hierarchy and relate with the communication of IP address.
-![[pcap-analysis.png]]
+
+![pcap-analysis](./static/pcap-analysis.png)
+
 From the protocol hierarchy output, we able to investigate futher in tcp transmissions based on the IP address communication.
 
-![pcap-analysis-2](pcap-analysis-2.png)
+![pcap-analysis-2](./static/pcap-analysis-2.png)
 
 After futher investigation, we notice port knocking performed by `ip.addr==192.168.248.151 && ip.addr==192.168.248.137`
 
