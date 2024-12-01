@@ -1,0 +1,18 @@
+Solution:
+- The binary function to process input with a dialog box (hDlg) -> 
+- Main Function is DialogFunc
+
+Input Capture:
+char String[100];
+GetDlgItemTextA(hDlg, 1000, String, 90);
+-> retrieves text from dialog item with ID 1000
+-> stores up to 90 characters in String
+
+Validation logic:
+-> XOR each input character with 0x65
+-> Compare XORed character with corresponding byte in byte_402050
+-> Must be exactly 20 characters long
+-> Every character must matched when XORed
+
+
+Answer: Welcome to MCC2024!!
