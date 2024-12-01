@@ -108,7 +108,7 @@ ip.addr==192.168.248.151 && ip.addr==192.168.248.137 && (tcp.flags.syn == 1 && t
 ### Step 10: Nmap to port 631 and found new service called CUPS
 After analyzing the pcap file, we notice the use of port 631, which is for the Internet Printing Protocol (IPP). This protocol is commonly used by CUPS (Common UNIX Printing System) to manage print jobs and printers over a network. 
 
-References: link booktricks
+References: [631 - Internet Printing Protocol (IPP)](https://book.hacktricks.xyz/network-services-pentesting/pentesting-631-internet-printing-protocol-ipp)
 
 In order to perform nmap scan on the victim machine, we have to perform knocking with knockd
 ```
@@ -161,6 +161,7 @@ Once we enter the victim machine, the first flag is located at `/home/lp`, we ca
 ### Step 12: Use tools suid3num to enumerate 
 
 ![image](./static/image.png)
+
 We have tried running linpeas but unfortunately it does not work due to timeout. So, we opt for suid3num enumeration to perform privilege escalation. 
 
 ![image (1)](./static/image (1).png)
