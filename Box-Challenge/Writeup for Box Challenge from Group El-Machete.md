@@ -164,7 +164,7 @@ Once we enter the victim machine, the first flag is located at `/home/lp`, we ca
 
 We have tried running linpeas but unfortunately it does not work due to timeout. So, we opt for suid3num enumeration to perform privilege escalation. 
 
-![image (1)](./static/image (1).png)
+![image (1)](./static/image-1.png)
 
 Now, we have found the second flag.
 
@@ -172,7 +172,7 @@ Now, we have found the second flag.
 
 ### Step 13: Found last flag with alexander's privilege at home directory 
 
-![image (1)](./static/image (1).webp)
+![image (1)](./static/image-1.webp)
 
 **3rd Flag:** `MCC24{g00d_j0b_3v3ry0n3}`
 
