@@ -1,0 +1,23 @@
+Steps to Reverse:
+
+1. Reverse the final XOR
+- 0x8E67212B
+
+2. Undo the right shift by 1
+
+3. Undo the rotate right
+
+4. Reverse sequence of additions and subtractions
+-intermediate += 0x5C7786; // Add back the subtracted constant
+-intermediate -= ((v4 ^ 0xB20083FF) >> 9); // Subtract the shifted value
+-intermediate ^= 0xCB89034; // Undo the XOR
+-intermediate += 0xD1507BA; // Add back the subtracted constant
+
+5. Undo second shift operation
+- shifted_value = ((v4 ^ 0xB20083FF) >> 9);
+- shifted_value *= 512;
+
+6. Undo XOR with 0xB20083FF
+- v4 = shifted_value ^ 0xB20083FF;
+
+

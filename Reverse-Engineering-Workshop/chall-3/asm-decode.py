@@ -1,0 +1,33 @@
+
+def calculate_checksum(input_data):
+    v5 = 0
+    v4 = 0
+    for i in range(len(input_data)):
+        v5 = (input_data[i] + v5) % 255
+        v4 = (v5 + v4) % 255
+    return v5 | (v4 << 8)
+
+# Byte values from assembly
+byte_values = [
+    0xB4, 0x3A, 0xE5, 0x22, 0x29, 0xB5, 0x92, 0xD6,
+    0xA4, 0x5E, 0xAA, 0xA4, 0xB4, 0x4B, 0x6B, 0xD2,
+    0x2E, 0xAD, 0xAD, 0x9B, 0xD6, 0x1D, 0xBC, 0x54,
+    0x17, 0xAD, 0x3F, 0x78, 0xE9, 0xA5, 0x94, 0x7E,
+    0xE9, 0x70, 0xD1, 0xAD, 0x8F, 0x7F, 0x9A, 0xBD,
+    0xFF, 0xC4, 0xF5, 0xF5, 0xE9, 0x97, 0xF4, 0xB4,
+    0x21, 0xFD, 0xF2, 0x33, 0xF5, 0xF9
+]
+
+# Reverse the byte sequence
+reversed_bytes = byte_values[::-1]
+
+# Convert to ASCII if possible
+ascii_string = ''.join(chr(b) if 32 <= b <= 126 else '.' for b in reversed_bytes)
+
+# Calculate the checksum of the reversed byte array
+checksum = calculate_checksum(reversed_bytes)
+
+# Output results
+print("Reversed Bytes (Hex):", [hex(b) for b in reversed_bytes])
+print("ASCII Representation:", ascii_string)
+print(f"Calculated Checksum: {hex(checksum)}")
